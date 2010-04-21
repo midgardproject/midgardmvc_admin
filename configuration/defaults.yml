@@ -49,3 +49,12 @@ routes:
         allowed_methods:
             - GET
             - POST
+    asgard_odata_entries:
+        controller: midgardmvc_admin_asgard_controllers_odata
+        action: entries
+        route: '/mgd:asgard/odata/{$type}'
+        root_only: true
+        template_entry_point: midcom-show-json
+        mimetype: application/json
+        allowed_methods:
+            - GET
