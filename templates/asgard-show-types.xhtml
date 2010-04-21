@@ -1,0 +1,7 @@
+<ul class="hfeed" tal:condition="midgardmvc_core/types">
+    <li tal:repeat="type midgardmvc_core/types" tal:attributes="mgd:type type/type" style="list-style: none; float: left; margin: 8px">
+        <em tal:attributes="style string:font-size:${type/size}em">
+            <a href="#" tal:content="type/label" tal:attributes="href type/url; title string:MgdSchema type ${type/type} has ${type/items} items">Article</a>
+        </em>
+    </li>
+</ul>

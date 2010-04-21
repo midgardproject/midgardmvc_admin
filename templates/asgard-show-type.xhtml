@@ -1,0 +1,86 @@
+<h1><a tal:content="midgardmvc_core/type" tal:attributes="href midgardmvc_core/type_url">midgard_article</a></h1>
+
+<p class="docblock" tal:content="structure midgardmvc_core/class_documentation/docblock">
+Documentation about the class
+</p>
+
+<table id="asgard_type_entries">
+    <thead>
+        <tr>
+            <th tal:repeat="property midgardmvc_core/odata_properties" tal:content="property">Name</th>
+        </tr>
+    </thead>
+    <tbody>
+    </tbody>
+</table>
+<script>
+
+
+function fnGetKey( aoData, sKey )
+{
+    for (i in aoData)
+    {
+		if ( aoData[i].name == sKey )
+		{
+			return aoData[i].value;
+		}
+	}
+	return null;
+}
+
+$(document).ready(function()
+{ 
+    $('#asgard_type_entries').dataTable(
+        {
+            'bProcessing': true,
+            'bServerSide': true,
+            'sAjaxSource': '<tal:block tal:replace="midgardmvc_core/odata_url" />',
+            'bJQueryUI': true,
+            'bFilter': false,
+			'fnServerData': function(sSource, aoData, fnCallback) 
+			{
+			    aoData.push
+			    (
+			        {
+			            'name': '$top',
+			            'value':  fnGetKey(aoData, 'iDisplayLength'),
+
+			        }
+			    );
+			    aoData.push
+			    (
+			        {
+			            'name': '$skip',
+			            'value':  fnGetKey(aoData, 'iDisplayStart'),
+
+			        }
+			    );
+
+				$.getJSON
+				(
+				    sSource, aoData, function(json) 
+				    {
+				        var tableData = {}
+				        tableData.iTotalDisplayRecords = json.d.__count;
+				        tableData.iTotalRecords = json.d.__count;
+				        tableData.aaData = [];
+				        tableData.sEcho = 1;
+				        for (resultid in json.d.results)
+				        {
+				            result = json.d.results[resultid];
+				            tableData.aaData.push
+				            ([
+				                <tal:block tal:repeat="property midgardmvc_core/odata_properties">
+				                    result.<tal:block tal:replace="property" />,
+				                </tal:block>
+				            ]);
+
+				        }
+				    	fnCallback(tableData);
+				    } 
+				);
+			}
+        }
+    ); 
+}); 
+</script> 
