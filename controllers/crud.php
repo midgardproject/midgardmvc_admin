@@ -55,7 +55,7 @@ class midgardmvc_admin_controllers_crud extends midgardmvc_core_controllers_base
     {
         return midgardmvc_core::get_instance()->dispatcher->generate_url
         (
-            'asgard_crud_read', array
+            'mvcadmin_crud_read', array
             (
                 'type' => get_class($this->object), 
                 'guid' => $this->object->guid
@@ -67,7 +67,7 @@ class midgardmvc_admin_controllers_crud extends midgardmvc_core_controllers_base
     {
         return midgardmvc_core::get_instance()->dispatcher->generate_url
         (
-            'asgard_crud_update', array
+            'mvcadmin_crud_update', array
             (
                 'type' => get_class($this->object), 
                 'guid' => $this->object->guid

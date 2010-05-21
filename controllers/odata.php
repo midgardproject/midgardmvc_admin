@@ -122,7 +122,7 @@ class midgardmvc_admin_controllers_odata
             $object_data['guid'] = $object->guid;
             $object_data['url'] =  midgardmvc_core::get_instance()->dispatcher->generate_url
             (
-                'asgard_crud_update', array
+                'mvcadmin_crud_update', array
                 (
                     'type' => get_class($object), 
                     'guid' => $object->guid

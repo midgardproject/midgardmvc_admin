@@ -37,7 +37,7 @@ class midgardmvc_admin_controllers_type
                 'type'  => $type,
                 'label' => $this->get_type_label($type),
                 'items' => $items,
-                'url'   => $midcom->dispatcher->generate_url('asgard_type_type', array('type' => $type)),
+                'url'   => $midcom->dispatcher->generate_url('mvcadmin_type_type', array('type' => $type)),
             );
             
             if ($items > $largest_type)
@@ -102,7 +102,7 @@ class midgardmvc_admin_controllers_type
             )
         );
         
-        $this->data['odata_url'] = $midcom->dispatcher->generate_url('asgard_odata_entries', array('type' => $this->data['type']));
+        $this->data['odata_url'] = $midcom->dispatcher->generate_url('mvcadmin_odata_entries', array('type' => $this->data['type']));
         $this->data['odata_properties'] = $list_properties = midgardmvc_admin_controllers_odata::get_list_properties_for_type($this->data['type']);
     }
 }
