@@ -1,6 +1,6 @@
 <?php
 /**
- * @package midgardmvc_admin_asgard
+ * @package midgardmvc_admin
  * @author The Midgard Project, http://www.midgard-project.org
  * @copyright The Midgard Project, http://www.midgard-project.org
  * @license http://www.gnu.org/licenses/lgpl.html GNU Lesser General Public License
@@ -9,9 +9,9 @@
 /**
  * OData provider for Midgard content
  *
- * @package midgardmvc_admin_asgard
+ * @package midgardmvc_admin
  */
-class midgardmvc_admin_asgard_controllers_odata
+class midgardmvc_admin_controllers_odata
 {
     public function __construct(midgardmvc_core_component_interface $instance)
     {
@@ -93,7 +93,7 @@ class midgardmvc_admin_asgard_controllers_odata
     public function get_entries(array $args)
     {
         $midcom = midgardmvc_core::get_instance();
-        $midcom->templating->append_directory($midcom->componentloader->component_to_filepath('midgardmvc_admin_asgard') . '/templates');
+        $midcom->templating->append_directory($midcom->componentloader->component_to_filepath('midgardmvc_admin') . '/templates');
         $types = $midcom->dispatcher->get_mgdschema_classes();
         if (!in_array($args['type'], $types))
         {
@@ -102,7 +102,7 @@ class midgardmvc_admin_asgard_controllers_odata
 
         $type = $args['type'];
         
-        $list_properties = midgardmvc_admin_asgard_controllers_odata::get_list_properties_for_type($type);
+        $list_properties = midgardmvc_admin_controllers_odata::get_list_properties_for_type($type);
         $objects = array();
         $qb = new midgard_query_builder($type);
         $this->add_constraints($qb);

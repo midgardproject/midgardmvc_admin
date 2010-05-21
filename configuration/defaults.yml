@@ -1,58 +1,58 @@
 routes:
     asgard_type_types:
-        controller: midgardmvc_admin_asgard_controllers_type
+        controller: midgardmvc_admin_controllers_type
         action: types
-        route: '/mgd:asgard/types'
+        route: '/mgd:admin/types'
         root_only: true
         content_entry_point: asgard-show-types
         allowed_methods:
             - GET
     asgard_type_type:
-        controller: midgardmvc_admin_asgard_controllers_type
+        controller: midgardmvc_admin_controllers_type
         action: type
-        route: '/mgd:asgard/types/{$type}'
+        route: '/mgd:admin/types/{$type}'
         root_only: true
         content_entry_point: asgard-show-type
         allowed_methods:
             - GET
     asgard_template:
-        controller: midgardmvc_admin_asgard_controllers_template
+        controller: midgardmvc_admin_controllers_template
         action: template
-        route: '/mgd:asgard/templates/'
+        route: '/mgd:admin/templates/'
         root_only: true
         content_entry_point: asgard-show-template
         allowed_methods:
             - GET
     asgard_crud_create:
-        controller: midgardmvc_admin_asgard_controllers_crud
+        controller: midgardmvc_admin_controllers_crud
         action: create
-        route: '/mgd:asgard/object/create/{$type}'
+        route: '/mgd:admin/object/create/{$type}'
         root_only: true
         content_entry_point: asgard-edit-object
         allowed_methods:
             - GET
             - POST
     asgard_crud_read:
-        controller: midgardmvc_admin_asgard_controllers_crud
+        controller: midgardmvc_admin_controllers_crud
         action: read
-        route: '/mgd:asgard/object/read/{$type}/{$guid}'
+        route: '/mgd:admin/object/read/{$type}/{$guid}'
         root_only: true
         content_entry_point: asgard-show-object
         allowed_methods:
             - GET
     asgard_crud_update:
-        controller: midgardmvc_admin_asgard_controllers_crud
+        controller: midgardmvc_admin_controllers_crud
         action: update
-        route: '/mgd:asgard/object/update/{$type}/{$guid}'
+        route: '/mgd:admin/object/update/{$type}/{$guid}'
         root_only: true
         content_entry_point: asgard-edit-object
         allowed_methods:
             - GET
             - POST
     asgard_odata_entries:
-        controller: midgardmvc_admin_asgard_controllers_odata
+        controller: midgardmvc_admin_controllers_odata
         action: entries
-        route: '/mgd:asgard/odata/{$type}'
+        route: '/mgd:admin/odata/{$type}'
         root_only: true
         template_entry_point: midcom-show-json
         mimetype: application/json

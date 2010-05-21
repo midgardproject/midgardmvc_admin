@@ -1,6 +1,6 @@
 <?php
 /**
- * @package midgardmvc_admin_asgard
+ * @package midgardmvc_admin
  * @author The Midgard Project, http://www.midgard-project.org
  * @copyright The Midgard Project, http://www.midgard-project.org
  * @license http://www.gnu.org/licenses/lgpl.html GNU Lesser General Public License
@@ -9,14 +9,14 @@
 /**
  * Page management controller
  *
- * @package midgardmvc_admin_asgard
+ * @package midgardmvc_admin
  */
-class midgardmvc_admin_asgard_controllers_crud extends midgardmvc_core_controllers_baseclasses_crud
+class midgardmvc_admin_controllers_crud extends midgardmvc_core_controllers_baseclasses_crud
 {
     public function __construct(midgardmvc_core_component_interface $instance)
     {
         $this->configuration =& midgardmvc_core::get_instance()->configuration;
-        midgardmvc_core::get_instance()->templating->append_directory(midgardmvc_core::get_instance()->componentloader->component_to_filepath('midgardmvc_admin_asgard') . '/templates');
+        midgardmvc_core::get_instance()->templating->append_directory(midgardmvc_core::get_instance()->componentloader->component_to_filepath('midgardmvc_admin') . '/templates');
     }
 
     public function load_object(array $args)
