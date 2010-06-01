@@ -4,7 +4,7 @@
 Documentation about the class
 </p>
 
-<table id="asgard_type_entries">
+<table id="mvcadmin_type_entries">
     <thead>
         <tr>
             <th tal:repeat="property midgardmvc_core/odata_properties" tal:content="property">Name</th>
@@ -30,7 +30,7 @@ function fnGetKey( aoData, sKey )
 
 $(document).ready(function()
 { 
-    $('#asgard_type_entries').dataTable(
+    $('#mvcadmin_type_entries').dataTable(
         {
             'bProcessing': true,
             'bServerSide': true,
